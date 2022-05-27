@@ -6,7 +6,8 @@
  */
 
 #include "eCensista.h"
-#include "utn_Libreria.h"
+
+#include "utn_inputs.h"
 
 int inicialiciarCensistas(eCensista lista[], int tamCensistas)
 {
@@ -65,6 +66,8 @@ int buscarEspacioLibreArrayCensista(eCensista lista[], int tamCensistas, int* in
 			retorno=0;
 		}
 	}
+
+
 
 	return retorno;
 }

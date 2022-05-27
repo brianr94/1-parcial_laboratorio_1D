@@ -5,7 +5,8 @@
  *      Author: brian
  */
 
-#include "utn_Libreria.h"
+#include "utn_inputs.h"
+#include "utn_validaciones.h"
 
 int pedirCadenaValidada(char* cadena,char* mensaje,char* mensajeError,int maxTam)
 {
@@ -118,123 +119,7 @@ int pedirCadena(char* cadena,char* mensaje,char* mensajeError,int tamMax)
 	return retorno;
 }
 
-int esNumero(char* cadena)
-{
-	int retorno=-1;
-	int i;
-	int tamanioCadena;
 
-	if(cadena!=NULL)
-	{
-		tamanioCadena=strlen(cadena);
-
-		for(i=0;i<tamanioCadena;i++)
-		{
-			if(isdigit(cadena[i])==0 && cadena[i]!='.' && cadena[0]!='+' && cadena[0]!='-')
-			{
-				retorno=0;
-				break;
-			}
-
-		}
-
-	}
-	return retorno;
-}
-
-int validarSignos(char* cadena)
-{
-	int i;
-	int tamanioCadena;
-	int retorno=-1;
-
-	if(cadena!=NULL)
-	{
-		tamanioCadena=strlen(cadena);
-		cadenaEnMinuscula(cadena);
-
-		for(i=0;i<tamanioCadena;i++)
-		{
-
-			if(cadena[i] < 97 || cadena[i] > 122)
-			{
-
-				retorno=0;
-				break;
-			}
-		}
-	}
-	return retorno;
-}
-
-int validarEspacio(char* cadena)
-{
-	int retorno=-1;
-	int i;
-	int tamanioCadena;
-
-	tamanioCadena=strlen(cadena);
-
-	for(i=0;i<tamanioCadena;i++)
-	{
-		if(cadena[i] == ' ' || cadena[i] == '\t' || cadena[i] == '\v')
-		{
-			retorno=0;
-			break;
-		}
-
-	}
-	return retorno;
-}
-
-int primerLetraMayuscula(char* cadena)
-{
-	int retorno=-1;
-	int tamanioCadena;
-	int i;
-
-	if(cadena!=NULL)
-	{
-		tamanioCadena=strlen(cadena);
-
-		for(i=0;i<tamanioCadena;i++)
-		{
-			if(i==0)
-			{
-				cadena[i]=toupper(cadena[i]);
-			}
-			if(cadena[i]==' ')
-			{
-				cadena[i+1]=toupper(cadena[i+1]);
-			}
-		}
-
-		retorno=0;
-	}
-
-	return retorno;
-}
-
-int cadenaEnMinuscula(char* cadena)
-{
-	int retorno=-1;
-	int i;
-	int tamanioCadena;
-
-	if(cadena!=NULL)
-	{
-
-		tamanioCadena=strlen(cadena);
-
-		for(i=0;i<tamanioCadena;i++)
-		{
-			cadena[i]=tolower(cadena[i]);
-		}
-
-		retorno=0;
-	}
-	return retorno;
-}
 
 int pedirNumeroEnteroValidado(int* pNumero, char* mensaje, char* mensajeError, int min, int max)
 {

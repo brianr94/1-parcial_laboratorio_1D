@@ -7,12 +7,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <strings.h>
+#include <ctype.h>
 #include "eCensista.h"
 #include "eVivienda.h"
-#include "utn_Libreria.h"
+#include "utn_inputs.h"
 
 #define LENVIVIENDAS 5
 #define LENCENCISTAS 3
+
 int main(void) {
 	setbuf(stdout,NULL);
 
@@ -29,8 +32,11 @@ int main(void) {
 	inicialiciarCensistas(cencistas, LENCENCISTAS);
 	harcodeoCensistas(cencistas, LENCENCISTAS);
 
+
+
 	do
 	{
+
 		pedirNumeroEnteroValidado(&opcion,	"--------------------------\n"
 											"1. ALTA VIVIENDA\n"
 											"2. MODIFICAR VIVIENDA\n"
@@ -54,6 +60,7 @@ int main(void) {
 			switch(opcion)
 			{
 				case 1:
+					mostrarViviendas(viviendas, LENVIVIENDAS);
 					if(cargarViviendas(viviendas, LENVIVIENDAS, &ultimoIdIngresado)==0)
 					{
 						viviendaIngresada++;
@@ -65,6 +72,11 @@ int main(void) {
 					{
 						modificarDatosVivienda(viviendas, LENVIVIENDAS);
 					}
+					else
+					{
+						printf("Primero debe dar de alta una vivienda!!!\n");
+					}
+
 
 					break;
 
